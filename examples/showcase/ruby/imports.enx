@@ -1,0 +1,8 @@
+---
+imports:
+  - lib/greeting.enx
+---
+
+We start with a name: name = "Ada"
+and ask the helper for a greeting: message = greeting(!-1)
+then we print it: puts !-1

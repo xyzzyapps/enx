@@ -1,0 +1,7 @@
+my $phrase = "the quick brown fox";
+my $copy = $phrase;
+$phrase =~ s/brown/red/;
+my $vowels = ($phrase =~ tr/aeiou//);
+print "$phrase\n";
+print "vowels: $vowels\n";
+print "again: ", $copy, "\n";

@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int value;
+    struct node *next;
+};
+struct node *push(struct node *head, int value) {
+    struct node *p = malloc(sizeof(*p));
+    p->value = value;
+    p->next = head;
+    return p;
+}
+int main(void) {
+    struct node *head = NULL;
+    head = push(head, 1);
+    head = push(head, 2);
+    head = push(head, 3);
+
+    while (head != NULL) {
+        printf("%d\n", head->value);
+        head = head->next;
+    }
+    return 0;
+}

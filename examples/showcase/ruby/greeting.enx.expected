@@ -1,0 +1,5 @@
+x = 5
+y = 5
+sum = lambda { |a, b| a + b }
+answer = sum.call(x, 5)
+puts answer

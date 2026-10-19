@@ -1,0 +1,57 @@
+#include <stdio.h>
+typedef struct { long cents; } money_t;
+
+static money_t money_add(money_t a, money_t b) {
+    money_t r;
+    r.cents = a.cents + b.cents;
+    return r;
+}
+typedef struct {
+    const char *name;
+    money_t price;
+} product_t;
+#define MAX_LINES 8
+
+typedef struct {
+    product_t items[MAX_LINES];
+    int count;
+} order_t;
+
+static void order_add(order_t *o, product_t p) {
+    if (o->count < MAX_LINES) {
+        o->items[o->count] = p;
+        o->count++;
+    }
+}
+
+static money_t order_total(const order_t *o) {
+    money_t total = { 0 };
+    for (int i = 0; i < o->count; i++) {
+        total = money_add(total, o->items[i].price);
+    }
+    return total;
+}
+static void money_str(char *buf, size_t n, money_t m) {
+    snprintf(buf, n, "$%ld.%02ld", m.cents / 100, m.cents % 100);
+}
+int main(void) {
+    order_t order;
+    order.count = 0;
+
+    product_t coffee = { "Coffee Beans", { 1299 } };
+    product_t mug = { "Ceramic Mug", { 850 } };
+
+    order_add(&order, coffee);
+    order_add(&order, mug);
+    order_add(&order, coffee);
+
+    money_t total = order_total(&order);
+
+    char buf[32];
+    money_str(buf, sizeof buf, total);
+
+    printf("items: %d\n", order.count);
+    printf("total: %s\n", buf);
+
+    return 0;
+}

@@ -1,0 +1,6 @@
+menu = { coffee: 1299, mug: 850, beans: 999 }
+names = menu.keys.sort
+names.each { |name| puts "#{name}: #{menu[name]}" }
+cheapest = menu.values.min
+puts cheapest
+puts cheapest + 1

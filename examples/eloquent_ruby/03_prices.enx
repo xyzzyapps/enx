@@ -1,0 +1,7 @@
+We start with coffee at 1299: coffee = 1299
+a mug at 850: mug = 850
+and beans at 999: beans = 999
+then we pack them into a hash: prices = { "coffee" => !-3, "mug" => !-2, "beans" => !-1 }
+we keep the items under ten dollars: cheap = prices.select { |name, cents| cents < 1000 }
+and build their labels: formatted = !-1.map { |name, cents| "#{name} costs $#{cents / 100}.#{cents % 100}" }
+then we print the labels in order: puts !-1.sort

@@ -1,0 +1,54 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      # The oracle tests and the CLI run tests use these when present; the
+      # suite skips them otherwise, so installing them makes CI stronger.
+      - name: Install Ruby, Perl and GCC
+        run: sudo apt-get update && sudo apt-get install -y ruby perl gcc
+
+      - name: Check formatting
+        run: |
+          out=$(gofmt -l cmd internal data)
+          if [ -n "$out" ]; then
+            echo "unformatted files:"
+            echo "$out"
+            exit 1
+          fi
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Test
+        run: go test ./...
+
+      - name: Strict check
+        run: go run ./cmd/enx check --strict examples/strict/clean.enx
+
+      - name: Race test
+        run: go test -race ./...
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      # Ruby, Perl and GCC are not installed here on purpose: this job proves
+      # the build and the language-independent tests hold on Windows, including
+      # CRLF handling, without depending on external toolchains.
+      - name: Test
+        run: go test ./...

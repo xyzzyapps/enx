@@ -1,0 +1,4 @@
+we start with x as five, that is x = 5, and y as five too: y = 5
+and their sum is a function of two arguments, so sum = lambda { |a, b| a + b }
+finally we call sum with x and five and print the answer: answer = sum.call(x, 5)
+and then we show it: puts answer

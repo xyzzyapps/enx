@@ -1,0 +1,87 @@
+# Taskfile.yml - build, test, and data-generation entry points for enx.
+#
+# Run `task` to list tasks, or `task <name>` to run one.
+
+version: '3'
+
+vars:
+  BIN: enx.exe
+  CMD: ./cmd/enx
+  PKGS: ./...
+  GOFMT_TARGETS: cmd internal data
+  WORDLIST_URL: https://norvig.com/ngrams/count_1w.txt
+
+tasks:
+  default:
+    desc: Run the full check suite
+    cmds:
+      - task: check
+
+  check:
+    desc: Format check, vet, tests, and a strict example check
+    deps: [fmt:check, vet]
+    cmds:
+      - go test {{.PKGS}}
+      - go run {{.CMD}} check --strict examples/strict/clean.enx
+
+  strict:
+    desc: Run check --strict on the strict example
+    cmds:
+      - go run {{.CMD}} check --strict examples/strict/clean.enx
+
+  build:
+    desc: Build the enx binary
+    cmds:
+      - go build -o {{.BIN}} {{.CMD}}
+
+  run:
+    desc: Run enx with the given arguments, for example `task run -- label x.enx`
+    cmds:
+      - go run {{.CMD}} {{.CLI_ARGS}}
+
+  test:
+    desc: Run all tests
+    cmds:
+      - go test {{.PKGS}}
+
+  test:verbose:
+    desc: Run all tests with output
+    cmds:
+      - go test -v {{.PKGS}}
+
+  vet:
+    desc: Run go vet
+    cmds:
+      - go vet {{.PKGS}}
+
+  fmt:
+    desc: Format all Go source
+    cmds:
+      - gofmt -w {{.GOFMT_TARGETS}}
+
+  fmt:check:
+    desc: Fail if any Go source is unformatted
+    cmds:
+      - |
+        out=$(gofmt -l {{.GOFMT_TARGETS}})
+        if [ -n "$out" ]; then
+          echo "unformatted files:"
+          echo "$out"
+          exit 1
+        fi
+        echo "all files formatted"
+
+  wordlist:
+    desc: Regenerate data/english_freq.tsv.gz from Norvig's corpus
+    dir: .
+    cmds:
+      - curl -fsSL -o "$TEMP/count_1w.txt" "{{.WORDLIST_URL}}"
+      - perl tools/gen_wordlist.pl "$TEMP/count_1w.txt" data/english_freq.tsv
+      - gzip -9 -c data/english_freq.tsv > data/english_freq.tsv.gz
+      - rm -f data/english_freq.tsv
+      - ls -l data/english_freq.tsv.gz
+
+  clean:
+    desc: Remove build output
+    cmds:
+      - rm -f {{.BIN}}

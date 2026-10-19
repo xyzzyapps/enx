@@ -1,0 +1,19 @@
+use strict;
+use warnings;
+sub price_str {
+    my ($cents) = @_;
+    return sprintf('$%d.%02d', $cents / 100, $cents % 100);
+}
+my %catalogue = (
+    "CF-100" => { name => "Coffee Beans", price => 1299, tags => [qw(pantry hot)] },
+    "MG-200" => { name => "Ceramic Mug",  price => 850,  tags => [qw(kitchen)] },
+);
+my @skus = sort keys %catalogue;
+my $kitchen = 0;
+
+foreach my $sku (@skus) {
+    my $product = $catalogue{$sku};
+    $kitchen++ if grep { $_ eq "kitchen" } @{ $product->{tags} };
+    printf "%-6s %-14s %8s\n", $sku, $product->{name}, price_str($product->{price});
+}
+print "Kitchen items: $kitchen\n";

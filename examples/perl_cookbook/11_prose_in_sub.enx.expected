@@ -1,0 +1,5 @@
+sub greet {
+    my $name = shift;
+    return "hello, $name";
+}
+print greet("Ada"), "\n";

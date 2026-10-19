@@ -1,0 +1,7 @@
+We start with a phrase. my $phrase = "the quick brown fox";
+and keep a copy. my $copy = !-1;
+we replace brown with red. $phrase =~ s/brown/red/;
+and count the vowels. my $vowels = ($phrase =~ tr/aeiou//);
+then we print the phrase and the count. print "$phrase\n";
+print "vowels: $vowels\n";
+and show the saved copy. print "again: ", !-2, "\n";

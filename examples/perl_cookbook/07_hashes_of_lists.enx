@@ -1,0 +1,13 @@
+We start with two short lists. my @coffee = ("beans", "mug");
+my @kitchen = ("mug", "plate");
+and put them in a hash. my %by_room = ( pantry => \@coffee, kitchen => \@kitchen );
+
+Then we print every room and its items.
+
+foreach my $room (sort keys %by_room) {
+    my $items = $by_room{$room};
+    print "$room: ", join(", ", @$items), "\n";
+}
+
+and count the rooms. my $rooms = keys !-2;
+finally we print the count. print "rooms: $rooms\n";

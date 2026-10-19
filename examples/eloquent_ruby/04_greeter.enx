@@ -1,0 +1,18 @@
+A module adds a greeting to any class that includes it.
+
+module Greeter
+  def greet
+    "hello from #{self.class}"
+  end
+end
+
+A person includes the module.
+
+class Person
+  include Greeter
+end
+
+Then we make one: person = Person.new
+and we ask it to greet us: greeting = !-1.greet
+then we print the greeting: puts !-1
+and print it again through the person: puts !-2.greet

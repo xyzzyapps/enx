@@ -1,0 +1,7 @@
+sentence = "the quick brown fox"
+words = sentence.split
+titled = words.map { |word| word.capitalize }
+joined = titled.join(" ")
+count = words.length
+puts joined
+puts count

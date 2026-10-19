@@ -1,0 +1,7 @@
+We start with three prices. my @prices = (1299, 850, 999);
+and sort them. my @sorted = sort { $a <=> $b } @prices;
+then we take the middle. my $middle = !-1[1];
+and the ends. my $low = $sorted[0];
+my $high = $sorted[-1];
+finally we print the range and the middle. print "range: $low..$high\n";
+print "middle: $middle\n";

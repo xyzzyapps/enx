@@ -1,0 +1,11 @@
+my @lines = ();
+sub add_line {
+    my ($order, $name, $count) = @_;
+    push @$order, [ $name, $count ];
+    return $order;
+}
+add_line(\@lines, "coffee", 2);
+add_line(\@lines, "mug", 1);
+foreach my $line (@lines) {
+    print $line->[0], " x ", $line->[1], "\n";
+}

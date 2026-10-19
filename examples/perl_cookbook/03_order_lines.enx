@@ -1,0 +1,18 @@
+We start with an empty order. my @lines = ();
+
+A helper adds a line through a reference.
+
+sub add_line {
+    my ($order, $name, $count) = @_;
+    push @$order, [ $name, $count ];
+    return $order;
+}
+
+then we add coffee twice. add_line(\@lines, "coffee", 2);
+and a mug once through the same order. add_line(\!-1, "mug", 1);
+
+Then we print each line.
+
+foreach my $line (@lines) {
+    print $line->[0], " x ", $line->[1], "\n";
+}

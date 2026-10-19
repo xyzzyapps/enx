@@ -1,0 +1,8 @@
+score = 87
+grade = case score
+when 90..100 then "A"
+when 80..89 then "B"
+else "C"
+end
+puts grade
+puts score

@@ -1,0 +1,9 @@
+my $line = "WARN 12:30 disk almost full";
+my $copy = $line;
+if ($line =~ /^(\w+)\s+(\d+:\d+)\s+(.*)$/) {
+    my ($level, $time, $message) = ($1, $2, $3);
+    print "level=$level\n";
+    print "time=$time\n";
+    print "message=$message\n";
+}
+print "copy: ", $line, "\n";

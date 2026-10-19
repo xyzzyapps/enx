@@ -1,0 +1,8 @@
+sub price_str {
+    my ($cents) = @_;
+    return sprintf('$%d.%02d', $cents / 100, $cents % 100);
+}
+my $coffee = 1299;
+my $mug = 850;
+my $total = 2 * $coffee + $mug;
+print "total: ", price_str($total), "\n";

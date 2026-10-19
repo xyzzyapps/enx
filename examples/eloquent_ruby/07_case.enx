@@ -1,0 +1,11 @@
+We start with a score: score = 87
+then we turn it into a grade:
+
+grade = case score
+when 90..100 then "A"
+when 80..89 then "B"
+else "C"
+end
+
+and we print the grade and the score: puts !-1
+puts !-2

@@ -1,0 +1,6 @@
+We format whole cents as dollars.
+
+sub money_str {
+    my ($cents) = @_;
+    return sprintf('$%d.%02d', $cents / 100, $cents % 100);
+}

@@ -1,0 +1,5 @@
+We start with a multiplier: factor = 3
+then we build a lambda that multiplies by it: times = lambda { |n| n * factor }
+and we call it with four: four_times = times.call(4)
+then we print the result: puts !-1
+and call the lambda again with five: puts !-2.call(5)

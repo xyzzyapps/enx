@@ -1,0 +1,11 @@
+We keep prices as whole cents, so here is a helper first.
+
+sub price_str {
+    my ($cents) = @_;
+    return sprintf('$%d.%02d', $cents / 100, $cents % 100);
+}
+
+We start with two coffees. my $coffee = 1299;
+and one mug. my $mug = 850;
+then we add two coffees and a mug. my $total = 2 * !-2 + !-1;
+and we print the total. print "total: ", price_str(!-1), "\n";

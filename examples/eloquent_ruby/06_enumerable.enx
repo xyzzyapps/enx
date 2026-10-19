@@ -1,0 +1,6 @@
+We start with a list: numbers = [1, 2, 3, 4, 5]
+we keep the even ones: evens = numbers.select { |n| n % 2 == 0 }
+and double them: doubled = !-1.map { |n| n * 2 }
+then we add the doubled values: total = !-1.reduce(0) { |sum, n| sum + n }
+and we print the doubled list and the total: puts !-2.inspect
+puts !-1

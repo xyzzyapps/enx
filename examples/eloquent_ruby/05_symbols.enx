@@ -1,0 +1,10 @@
+We start with a menu that maps symbols to prices: menu = { coffee: 1299, mug: 850, beans: 999 }
+we take the names and sort them: names = menu.keys.sort
+
+Then we print every name and its price.
+
+names.each { |name| puts "#{name}: #{menu[name]}" }
+
+and we find the cheapest price: cheapest = menu.values.min
+then we print it: puts !-1
+and add one cent: puts !-1 + 1

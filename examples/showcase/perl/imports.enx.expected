@@ -1,0 +1,7 @@
+sub money_str {
+    my ($cents) = @_;
+    return sprintf('$%d.%02d', $cents / 100, $cents % 100);
+}
+my $cents = 1299;
+my $text = money_str($cents);
+print $text, "\n";

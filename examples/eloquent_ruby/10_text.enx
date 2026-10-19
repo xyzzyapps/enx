@@ -1,0 +1,7 @@
+We start with a sentence: sentence = "the quick brown fox"
+we split it into words: words = sentence.split
+and capitalize each one: titled = !-1.map { |word| word.capitalize }
+then we make one line: joined = !-1.join(" ")
+and count the words: count = words.length
+finally we print the result and the count: puts !-2
+puts !-1

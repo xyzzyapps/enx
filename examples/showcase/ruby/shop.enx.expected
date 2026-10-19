@@ -1,0 +1,62 @@
+def price_str(cents)
+  format("$%d.%02d", cents / 100, cents % 100)
+end
+class Product
+  include Comparable
+
+  attr_reader :name, :cents
+
+  def initialize(name, cents)
+    @name = name
+    @cents = cents
+  end
+
+  def to_s
+    name + " at " + price_str(cents)
+  end
+
+  def <=>(other)
+    cents <=> other.cents
+  end
+end
+class Order
+  def initialize
+    @lines = []
+  end
+
+  def add(product, count)
+    @lines << [product, count]
+    self
+  end
+
+  def subtotal
+    @lines.reduce(0) do |running, pair|
+      running + pair[0].cents * pair[1]
+    end
+  end
+
+  def count
+    @lines.size
+  end
+end
+coffee = Product.new("Coffee Beans", 1299)
+mug = Product.new("Ceramic Mug", 850)
+order = Order.new
+order.add(coffee, 2).add(mug, 1)
+
+subtotal = order.subtotal
+tax = (subtotal * 8) / 100
+
+puts "items: " + order.count.to_s
+puts "subtotal: " + price_str(subtotal)
+puts "tax: " + price_str(tax)
+puts "total: " + price_str(subtotal + tax)
+if subtotal > 3000
+  puts "that is a big order"
+else
+  puts "a modest order"
+end
+
+[coffee, mug].sort.each do |product|
+  puts product
+end

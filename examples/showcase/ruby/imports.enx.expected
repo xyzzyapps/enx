@@ -1,0 +1,6 @@
+def greeting(name)
+  "hello, #{name}"
+end
+name = "Ada"
+message = greeting(name)
+puts message

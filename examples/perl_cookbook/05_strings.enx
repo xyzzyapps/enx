@@ -1,0 +1,5 @@
+We start with a name that has spaces around it. my $name = "  Ada Lovelace  ";
+we trim it. my $trimmed = $name =~ s/^\s+|\s+$//gr;
+and make it upper case. my $upper = uc !-1;
+then we print both forms. print "[$trimmed]\n";
+print "[$upper]\n";

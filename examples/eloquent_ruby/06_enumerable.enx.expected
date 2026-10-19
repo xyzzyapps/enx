@@ -1,0 +1,6 @@
+numbers = [1, 2, 3, 4, 5]
+evens = numbers.select { |n| n % 2 == 0 }
+doubled = evens.map { |n| n * 2 }
+total = doubled.reduce(0) { |sum, n| sum + n }
+puts doubled.inspect
+puts total

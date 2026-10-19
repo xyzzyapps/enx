@@ -1,0 +1,23 @@
+A document has a title and a body.
+
+class Document
+  attr_reader :title, :body
+
+  def initialize(title, body)
+    @title = title
+    @body = body
+  end
+
+  def word_count
+    body.split.size
+  end
+
+  def to_s
+    "#{title}: #{word_count} words"
+  end
+end
+
+Now we make one with a short note: doc = Document.new("A short note", "write code the way you explain it")
+and we count its words: words = doc.word_count
+then we print the document and the count: puts doc
+and then the count again: puts !-1

@@ -1,0 +1,10 @@
+values = [1, 2, 3]
+begin
+  missing = values.fetch(9)
+rescue StandardError => error
+  message = "missing: #{error.class}"
+ensure
+  checked = true
+end
+puts message
+puts checked

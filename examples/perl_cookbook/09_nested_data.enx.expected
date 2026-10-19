@@ -1,0 +1,9 @@
+my %product = (name => "Coffee", price => 1299, tags => [ "hot", "pantry" ]);
+my %catalogue = ( "CF-100" => \%product );
+my $name = $product{"name"};
+my $price = $product{"price"};
+print "$name costs $price cents\n";
+my $tag = $product{"tags"}[0];
+print "tag: $tag\n";
+my $sku = (sort keys %catalogue)[0];
+print "sku: $sku\n";

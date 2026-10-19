@@ -1,0 +1,6 @@
+We start with four words. my @words = ("delta", "alpha", "charlie", "bravo");
+we keep the short ones. my @short = grep { length($_) <= 5 } @words;
+and sort them. my @sorted = sort @short;
+then we join them. print join(" ", !-1), "\n";
+and count them. my $count = scalar !-1;
+print "count: $count\n";

@@ -1,0 +1,26 @@
+A small counter walks a fixed sentence and counts words and characters.
+
+#include <stdio.h>
+
+Then main does the walk. int main(void) {
+    const char *text = "the quick brown fox jumps over the lazy dog";
+    int words = 0;
+    int chars = 0;
+    int in_word = 0;
+    int i = 0;
+
+    while (text[i] != '\0') {
+        chars++;
+        if (text[i] == ' ') {
+            in_word = 0;
+        } else if (!in_word) {
+            in_word = 1;
+            words++;
+        }
+        i++;
+    }
+
+    printf("words: %d\n", words);
+    printf("chars: %d\n", chars);
+    return 0;
+}

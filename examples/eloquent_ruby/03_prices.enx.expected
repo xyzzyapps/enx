@@ -1,0 +1,7 @@
+coffee = 1299
+mug = 850
+beans = 999
+prices = { "coffee" => coffee, "mug" => mug, "beans" => beans }
+cheap = prices.select { |name, cents| cents < 1000 }
+formatted = cheap.map { |name, cents| "#{name} costs $#{cents / 100}.#{cents % 100}" }
+puts formatted.sort

@@ -1,0 +1,12 @@
+We start with a product.
+
+my %product = (name => "Coffee", price => 1299, tags => [ "hot", "pantry" ]);
+
+and place it in a catalogue. my %catalogue = ( "CF-100" => \%product );
+then we read its name and price. my $name = $product{"name"};
+my $price = $product{"price"};
+and print them. print "$name costs $price cents\n";
+then we read the first tag. my $tag = $product{"tags"}[0];
+print "tag: $tag\n";
+and show the first SKU. my $sku = (sort keys %catalogue)[0];
+print "sku: $sku\n";

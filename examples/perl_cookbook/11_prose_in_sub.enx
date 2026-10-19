@@ -1,0 +1,10 @@
+A helper adds a greeting.
+
+sub greet {
+    We make a small message.
+    my $name = shift;
+    return "hello, $name";
+}
+
+Then we print it.
+print greet("Ada"), "\n";

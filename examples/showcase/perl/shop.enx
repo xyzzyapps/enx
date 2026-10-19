@@ -1,0 +1,35 @@
+We keep a small catalogue of products in a hash, keyed by SKU.
+
+use strict;
+use warnings;
+
+Prices are held in whole cents, so here is a helper that turns a number of
+cents into a dollar string.
+
+sub price_str {
+    my ($cents) = @_;
+    return sprintf('$%d.%02d', $cents / 100, $cents % 100);
+}
+
+Each product has a name, a price and a list of tags.
+
+my %catalogue = (
+    "CF-100" => { name => "Coffee Beans", price => 1299, tags => [qw(pantry hot)] },
+    "MG-200" => { name => "Ceramic Mug",  price => 850,  tags => [qw(kitchen)] },
+);
+
+Now we list everything, from the cheapest upward, and count the kitchen
+things along the way.
+
+my @skus = sort keys %catalogue;
+my $kitchen = 0;
+
+foreach my $sku (@skus) {
+    my $product = $catalogue{$sku};
+    $kitchen++ if grep { $_ eq "kitchen" } @{ $product->{tags} };
+    printf "%-6s %-14s %8s\n", $sku, $product->{name}, price_str($product->{price});
+}
+
+Finally we report the count.
+
+print "Kitchen items: $kitchen\n";

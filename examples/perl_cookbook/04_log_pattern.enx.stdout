@@ -1,0 +1,4 @@
+level=WARN
+time=12:30
+message=disk almost full
+copy: WARN 12:30 disk almost full

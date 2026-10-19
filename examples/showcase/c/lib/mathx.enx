@@ -1,0 +1,5 @@
+A helper squares an integer.
+
+int square(int value) {
+    return value * value;
+}

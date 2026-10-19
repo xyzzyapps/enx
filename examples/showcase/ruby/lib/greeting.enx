@@ -1,0 +1,5 @@
+A small helper returns a greeting for a name.
+
+def greeting(name)
+  "hello, #{name}"
+end

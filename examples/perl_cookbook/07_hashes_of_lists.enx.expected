@@ -1,0 +1,9 @@
+my @coffee = ("beans", "mug");
+my @kitchen = ("mug", "plate");
+my %by_room = ( pantry => \@coffee, kitchen => \@kitchen );
+foreach my $room (sort keys %by_room) {
+    my $items = $by_room{$room};
+    print "$room: ", join(", ", @$items), "\n";
+}
+my $rooms = keys %by_room;
+print "rooms: $rooms\n";

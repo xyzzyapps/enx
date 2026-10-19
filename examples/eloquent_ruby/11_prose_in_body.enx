@@ -1,0 +1,17 @@
+A greeter stores a name and returns a message.
+
+class Greeter
+  We store the name in this object.
+  def initialize(name)
+    @name = name
+  end
+
+  We build the greeting here.
+  def greet
+    We make a small message.
+    "hello, #{@name}"
+  end
+end
+
+and then we print it.
+puts Greeter.new("Ada").greet

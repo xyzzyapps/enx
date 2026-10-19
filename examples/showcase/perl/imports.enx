@@ -1,0 +1,8 @@
+---
+imports:
+  - lib/money.enx
+---
+
+We start with 1299 cents. my $cents = 1299;
+and format them. my $text = money_str(!-1);
+then we print the result. print !-1, "\n";

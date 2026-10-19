@@ -1,0 +1,17 @@
+We start with a catalogue that maps SKUs to names.
+
+my %catalogue = (
+    "CF-100" => "Coffee Beans",
+    "MG-200" => "Ceramic Mug",
+    "BN-300" => "Beans",
+);
+
+then we take the SKUs and sort them. my @skus = sort keys !-1;
+and we print every SKU and name.
+
+foreach my $sku (@skus) {
+    print "$sku: $catalogue{$sku}\n";
+}
+
+and count them. my $count = @skus;
+finally we show the count. print "items: $count\n";

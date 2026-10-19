@@ -1,0 +1,5 @@
+factor = 3
+times = lambda { |n| n * factor }
+four_times = times.call(4)
+puts four_times
+puts times.call(5)

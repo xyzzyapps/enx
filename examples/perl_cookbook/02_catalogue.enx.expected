@@ -1,0 +1,11 @@
+my %catalogue = (
+    "CF-100" => "Coffee Beans",
+    "MG-200" => "Ceramic Mug",
+    "BN-300" => "Beans",
+);
+my @skus = sort keys %catalogue;
+foreach my $sku (@skus) {
+    print "$sku: $catalogue{$sku}\n";
+}
+my $count = @skus;
+print "items: $count\n";

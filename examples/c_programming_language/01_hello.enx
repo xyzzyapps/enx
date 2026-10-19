@@ -1,0 +1,8 @@
+We need the standard input and output header first.
+
+#include <stdio.h>
+
+The classic first program prints one line. int main(void) {
+    printf("hello, world\n");
+    return 0;
+}

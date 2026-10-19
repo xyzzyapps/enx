@@ -1,0 +1,9 @@
+coffee = 12
+mug = 5
+beans = 8
+inventory = { "coffee" => coffee, "mug" => mug, "beans" => beans }
+inventory.sort.each do |name, count|
+  puts "#{name}: #{count}"
+end
+total = inventory.values.reduce(0) { |sum, count| sum + count }
+puts total

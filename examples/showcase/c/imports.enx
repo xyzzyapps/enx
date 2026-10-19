@@ -1,0 +1,13 @@
+---
+imports:
+  - lib/mathx.enx
+---
+
+#include <stdio.h>
+
+Then main uses the helper. int main(void) {
+    int value = 7;
+    int result = square(!-1);
+    printf("%d squared is %d\n", value, result);
+    return 0;
+}

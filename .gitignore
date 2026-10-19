@@ -1,0 +1,10 @@
+# Build output
+/enx
+/enx.exe
+*.test
+*.out
+
+# Intermediate data: the plain lexicon is regenerated from the gzip by
+# `task wordlist`, and only the compressed form is committed.
+/data/english_freq.tsv
+/tmp/

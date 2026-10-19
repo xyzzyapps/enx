@@ -1,0 +1,12 @@
+module Greeter
+  def greet
+    "hello from #{self.class}"
+  end
+end
+class Person
+  include Greeter
+end
+person = Person.new
+greeting = person.greet
+puts greeting
+puts person.greet

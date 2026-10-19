@@ -1,0 +1,15 @@
+A helper adds two values.
+
+int add(int a, int b) {
+    We add the two values.
+    return a + b;
+}
+
+Then main prints the result.
+
+#include <stdio.h>
+
+int main(void) {
+    printf("%d\n", add(2, 3));
+    return 0;
+}

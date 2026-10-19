@@ -1,0 +1,6 @@
+my @words = ("delta", "alpha", "charlie", "bravo");
+my @short = grep { length($_) <= 5 } @words;
+my @sorted = sort @short;
+print join(" ", @sorted), "\n";
+my $count = scalar @sorted;
+print "count: $count\n";

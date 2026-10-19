@@ -1,0 +1,5 @@
+my $name = "  Ada Lovelace  ";
+my $trimmed = $name =~ s/^\s+|\s+$//gr;
+my $upper = uc $trimmed;
+print "[$trimmed]\n";
+print "[$upper]\n";

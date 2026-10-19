@@ -1,0 +1,13 @@
+We start with a list: values = [1, 2, 3]
+and we try to fetch a missing position:
+
+begin
+  missing = values.fetch(9)
+rescue StandardError => error
+  message = "missing: #{error.class}"
+ensure
+  checked = true
+end
+
+then we print the message and the flag: puts !-2
+puts !-1
